@@ -1,0 +1,204 @@
+{
+  "resourceType": "Patient", 
+  "ID": "010", 
+  "Identifier": [
+    {
+      "System": "https://benhvienk.vn/",
+      "Value": "BVK1234"
+    },
+    {
+      "System": "https://vneid.com/",
+      "Value": "012345678"
+    }
+  ],
+  "Active": true,
+  "Name": [
+    {
+      "Use": "official",
+      "Family": "Nguyen",
+      "Given": [
+        "Trung",
+        "A"
+      ], 
+      "Prefix": [
+        "Ông"
+      ],
+      "Suffix":[]
+    },
+    {
+      "Use": "Nickname",
+      "Given":[
+        "Anh"
+      ]
+    }
+  ],
+  "Telecom": [
+    {
+      "System":"Phone",
+      "Value":"039312345",
+      "Use": "Mobile"   
+    },
+    {
+      "System": "email",
+      "Value": "Nguyentrunga@gmail.com",
+      "Use":"Home"
+    }
+  ],
+  "Gender": "Man",
+  "Birthday": "08-07-1987",
+  "DeceasedBoolean": false,
+  "Address": [
+    {
+      "Use":"Home",
+      "Line":[
+        "97A Tran Phu"
+      ],
+      "City":"Ha Noi",
+      "District": "Ha Dong",
+      "PostalCode": "121000",
+      "Country": "Viet Nam"
+    }
+  ],
+  "MaritalStatus": {
+    "coding": [
+        {
+          "Display": "Married"  
+        }
+    ]
+  },
+  "Extensiom": [
+  {
+    "URL": "http://hl7.org/fhir/StructureDefinition/patient-occupation",
+    "ValueCodeableConcept": {
+      "Coding": [
+        {
+          "System": "http://example.org/occupation-codes",
+          "Code": "8140",
+          "Display": "Công nhân sản xuất"
+        }
+      ],
+      "Text": "Công nhân"
+    }
+  }
+],
+  "MultipleBirthBoolean":false,
+  "Ethnicity": [
+    {
+      "Coding": [
+        {
+          "System":"http://hl7.org/fhir/v3/Ethnicity",
+          "Code": "VNM",
+          "Display": "Vietnamese",
+          "Extension":  [
+            {
+              "URL": "https://chinhphu.vn/dan-toc/danh-sach-cac-dan-toc-viet-nam-10000494",
+              "ValueCoding": {
+                "System": "https://nhandan.vn/dan-toc-kinh-post723893.html",
+                "Code": "01",
+                "Display": "Kinh"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Communication": [
+    {
+      "Language": {
+        "Coding": [
+          {
+            "System": "urn:ietf:bcp:47",
+            "Code": "Vi",
+            "Display":"Vietnamese"
+          } 
+        ]
+      },
+      "Preferred": true
+    }
+  ],
+  "Contact": [
+    {
+      "Relationship": [
+        {
+          "Coding": [
+            {
+              "System":"http://terminology.hl7.org/CodeSystem/v2-0131",
+              "Code": "PRN",
+              "Display": "Parent"
+            }
+          ]
+        }
+      ],
+      "Name": {
+        "Family": "Nguyen",
+        "Given": [
+            "Van",
+            "B"
+        ]
+      },
+      "Telecom":[
+        {
+          "System":"Phone",
+          "Value":"023423444",
+          "Use":"Mobile"
+        }
+      ],
+      "Address": {
+        "Line": [
+            "456 Tran Nhat Duat"
+        ],
+        "City": "Ha Noi",
+        "PostalCode":"121000",
+        "Country":"Viet Nam"
+      }
+    } 
+  ],
+  "GeneralPractitioner": [
+    {
+      "Reference": "Practitioner/98765",
+      "Display":"Dr. Tran Van B"
+    },
+    {
+      "Reference":"Practitioner/87654" ,
+      "Display":"Dr. Nguyen Thi C"
+    }
+  ],
+  "managingOrganization": { 
+    "reference": "Organization/123",
+    "display": "Benh Vien Quan 1"
+  },
+   "Extension": [
+    {
+      "URL" : "https://haiduong.gov.vn/",
+      "ValueAddress": {
+        "City": "Hai Duong",
+        "Country":"Viet Nam"
+      }
+    }
+  ],
+  "Photo": [
+    {
+      "ContentType": "imag/jpeg",
+      "URL": "https://hospital.smarthealth.org/photos/patient-12345.jpg"
+    }
+  ],
+  "link": [
+    {
+        "Other": {
+            "Reference": "Coverage/COV001",
+            "Display": "BHYT chính"
+        },
+        "Type":"Seealso"
+    },
+    {
+      "Other":{
+        "Reference": "Coverage/COV002", 
+        "Display": "BHYT tại nơi công tác"
+      },
+      "Type":"Seealso"
+    }
+  ]
+}
+
+
