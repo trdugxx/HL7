@@ -1,0 +1,133 @@
+{
+  "resourceType": "Observation", // loại tài nguyên: quan sát đo y tế  sinh hiệu
+  "id": "ob-001", 
+  "status": "Finished", // trạng thái: đã hoàn tất
+  "start": "7h00 12-07-2025", // thời gian bắt đầu 
+  "end": "8h00 12-07-2025", // thời gian kết thúc 
+  "category": [ // Nhóm quan sát sinh hiệu
+    {
+        "coding": [
+            {
+              "system": "https://terminology.hl7.org/6.5.0/CodeSystem-observation-category.html", // link mã phân loại
+              "code": "Vital signs",// nhóm sinh hiệu
+              "display": "Vital signs"
+            }
+        ],
+        "text": "Đo sinh hiệu"
+    }
+  ],
+  "code": {
+    "coding": [
+        {
+          "system": "http://loinc.org", // link mã quốc tế 
+          "code": "85354-9", // mã huyết áp
+          "display":"Blood pressure panel with all children optional"
+        }
+    ],
+    "text":"Huyết áp tâm thu & tâm trương"
+  },
+  "subject":{ // người tham gia 
+    "reference":"Patient/010", // mã bệnh nhân
+    "display":"Nguyen Trung A" // tên bệnh nhân
+  },
+  "effectiveDateTime":"2025-07-16T08:00:00+07:00", // thời gian đo huyết áp
+  "performer": [ // người và nơi thực hiệN đo 
+    {
+      "reference": "Nurse/099", // mã bác sĩ 
+      "display":"Nguyen Thi A"  // tên bác sĩ     
+    },
+    {
+      "reference": "Location/010",// địa điểm đo 
+      "display":"Trạm y tế"
+    }
+  ],
+  "component":[ // các dấu hiệu và chỉ số cụ thể
+    {
+      "code":{
+        "coding":[
+          {
+            "system":"http://loinc.org", //  hệ thống mã LOINC
+            "code":"8480-6",
+            "display":"Systolic blood pressure" // huyết áp tâm thu
+          }
+        ]
+      },
+      "valueQuantity":{ // các giá trị đo
+        "value": "107", 
+        "unit":"mmHg", // đơn vị: milimet thuỷ ngân
+        "system":"http://unitsofmeasure.org", // link đơn vị chuẩn
+        "code":"mm[Hg]" // mã UCUM cho mmHg
+      },
+       "interpretation":[ // giải thích kết quả
+        {
+          "coding":[
+            {
+              "system":"http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",// link tới hệ thống mã 
+              "code":"N",
+              "display":"Normal"
+            }
+          ],
+          "text":"Bình thường"
+        }
+       ]
+    },
+    {
+      "code":{
+        "coding":[
+          {
+            "system":"http://loinc.org", // hệ thống mã LOINC
+            "code": "8462-4", // mã huyết áp tâm trương 
+            "display" : "Diastolic blood pressure" // Huyết áp tâm trương
+          }
+        ]
+      },
+      "valueQuantity":{
+        "value":"80",
+        "unit":"mmHg",
+        "system": "http://unitsofmeasure.org",
+        "code": "mm[Hg]"
+      },
+      "interpretation": [
+        {
+          "coding":[
+            {
+              "system":"http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+              "code":"L",
+              "display":"Low"
+            }
+          ],
+          "text":"Thấp"
+        }
+      ]
+    },
+    {
+      "code":{
+        "coding":[
+          {
+            "system": "http://loinc.org",
+            "code": "8310-5",
+             "display": "Body temperature" // đo nhiệt độ cơ thể 
+          }
+        ]
+      },
+      "valueQuantity":{
+        "value":"36.7",
+        "unit":"°C",
+        "system": "http://unitsofmeasure.org",
+        "code": "Cel"
+      },
+      "interpretation":[
+        {
+          "coding":[
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+              "code": "N",
+              "display": "Normal"
+            }
+          ],
+          "text":"Bình thường"
+        }
+      ]
+    }
+  ]
+}
