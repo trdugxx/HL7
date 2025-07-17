@@ -1,0 +1,204 @@
+{
+  "resourceType": "Patient", // Loại tài nguyên FHIR: Bệnh nhân
+  "ID": "010", // Mã định danh duy nhất của bệnh nhân
+  "Identifier": [ // Danh sách mã định danh của bệnh nhân
+    {
+      "System": "https://benhvienk.vn/",// Hệ thống cấp mã (ví dụ: mã hồ sơ bệnh viện)
+      "Value": "BVK1234" // Mã hồ sơ bệnh viện
+    },
+    {
+      "System": "https://vneid.com/",// Hệ thống cấp mã khác (ví dụ: CMND/CCCD)
+      "Value": "012345678" // Số CMND/CCCD
+    }
+  ],
+  "Active": true,// Bệnh nhân còn đang được quản lý
+  "Name": [ // Danh sách tên bệnh nhân
+    {
+      "Use": "official",
+      "Family": "Nguyen",
+      "Given": [
+        "Trung",
+        "A"
+      ], 
+      "Prefix": [
+        "Ông"
+      ],
+      "Suffix":[]
+    },
+    {
+      "Use": "Nickname",
+      "Given":[
+        "Anh"
+      ]
+    }
+  ],
+  "Telecom": [ // thông tin liên lạc
+    {
+      "System":"Phone",
+      "Value":"039312345",
+      "Use": "Mobile"   
+    },
+    {
+      "System": "email",
+      "Value": "Nguyentrunga@gmail.com",
+      "Use":"Home"
+    }
+  ],
+  "Gender": "Man", // giới tính,năm sinh
+  "Birthday": "08-07-1987",
+  "DeceasedBoolean": false,// Bệnh nhân còn sống
+  "Address": [ // địa chỉ bệnh nhân
+    {
+      "Use":"Home",
+      "Line":[
+        "97A Tran Phu"
+      ],
+      "City":"Ha Noi",
+      "District": "Ha Dong",
+      "PostalCode": "121000",
+      "Country": "Viet Nam"
+    }
+  ],
+  "MaritalStatus": { // tình trạng hôn nhân
+    "coding": [
+        {
+          "Display": "Married"  
+        }
+    ]
+  },
+  "Extensiom": [ // địa chỉ nơi làm việc, và công việc cụ thể
+  {
+    "URL": "http://hl7.org/fhir/StructureDefinition/patient-occupation", 
+    "ValueCodeableConcept": {
+      "Coding": [
+        {
+          "System": "http://example.org/occupation-codes",
+          "Code": "8140",
+          "Display": "Công nhân sản xuất"
+        }
+      ],
+      "Text": "Công nhân"
+    }
+  }
+],
+  "MultipleBirthBoolean":false,// kh phải sinh đôi
+  "Ethnicity": [ // dân tộc 
+    {
+      "Coding": [ // các nguồn dẫn về dân tộc 
+        {
+          "System":"http://hl7.org/fhir/v3/Ethnicity",
+          "Code": "VNM",
+          "Display": "Vietnamese",
+          "Extension":  [
+            {
+              "URL": "https://chinhphu.vn/dan-toc/danh-sach-cac-dan-toc-viet-nam-10000494",
+              "ValueCoding": {
+                "System": "https://nhandan.vn/dan-toc-kinh-post723893.html",
+                "Code": "01",
+                "Display": "Kinh"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Communication": [ // giao tiếP = ngôn ngữ việt
+    {
+      "Language": {
+        "Coding": [
+          {
+            "System": "urn:ietf:bcp:47",
+            "Code": "Vi",
+            "Display":"Vietnamese"
+          } 
+        ]
+      },
+      "Preferred": true
+    }
+  ],
+  "Contact": [ // người thân
+    {
+      "Relationship": [
+        {
+          "Coding": [
+            {
+              "System":"http://terminology.hl7.org/CodeSystem/v2-0131",
+              "Code": "PRN",
+              "Display": "Parent"
+            }
+          ]
+        }
+      ],
+      "Name": {
+        "Family": "Nguyen",
+        "Given": [
+            "Van",
+            "B"
+        ]
+      },
+      "Telecom":[
+        {
+          "System":"Phone",
+          "Value":"023423444",
+          "Use":"Mobile"
+        }
+      ],
+      "Address": {
+        "Line": [
+            "456 Tran Nhat Duat"
+        ],
+        "City": "Ha Noi",
+        "PostalCode":"121000",
+        "Country":"Viet Nam"
+      }
+    } 
+  ],
+  "GeneralPractitioner": [ // Danh sách bác sĩ theo dõi
+    {
+      "Reference": "Practitioner/98765",
+      "Display":"Dr. Tran Van B"
+    },
+    {
+      "Reference":"Practitioner/87654" ,
+      "Display":"Dr. Nguyen Thi C"
+    }
+  ], 
+  "managingOrganization": { // Cơ sở y tế chính quản lý
+    "reference": "Organization/123",
+    "display": "Benh Vien Quan 1"
+  },
+   "Extension": [
+    {
+      "URL" : "https://haiduong.gov.vn/",
+      "ValueAddress": {
+        "City": "Hai Duong",
+        "Country":"Viet Nam"
+      }
+    }
+  ],
+  "Photo": [ // ảnh bênh nhân
+    {
+      "ContentType": "imag/jpeg",
+      "URL": "https://hospital.smarthealth.org/photos/patient-12345.jpg"
+    }
+  ],
+  "link": [ // bảo hiểm y tês
+    {
+        "Other": {
+            "Reference": "Coverage/COV001",
+            "Display": "BHYT chính"
+        },
+        "Type":"Seealso"
+    },
+    {
+      "Other":{
+        "Reference": "Coverage/COV002", 
+        "Display": "BHYT tại nơi công tác"
+      },
+      "Type":"Seealso"
+    }
+  ]
+}
+
+
