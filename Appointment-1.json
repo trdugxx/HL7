@@ -1,0 +1,104 @@
+{
+    "resourceType": "Appointment", // Loại tài nguyên FHIR: hẹn khám 
+    "id": "App-001", // ID lịch khám
+    "status": "booked", // Trạng thái: Đã đặt
+    "description": "Khám bệnh ",// Miêu tả cuộc hẹn
+    "start": "7h00 12-07-2025",// Time,ngày bắt đầu cuộc hẹn
+    "end": "8h00 12-07-2025",// Time,ngày kết thúc cuộc hẹn
+    "created": "15h00 11-07-2025",// Time,ngày tạo cuộc hẹn
+    "reasonCode": [  // Lý do tạo cuộc hẹn 
+      {
+        "text": "Khám bệnh ho lao" // Ghi chú do bệnh nhân đặt
+      }
+    ],
+    "participant": [  // Người thiam gia cuộc hẹn
+      {
+        "actor": {  
+          "reference": "Patient/010", // Mã bệnh nhân
+          "display": "Nguyen Trung A"  // Tên bệnh nhân
+        },
+        "status": "Accepted", //trạng thái: chấp nhận 
+        "extension": [ // địa chỉ cụ thể
+          {
+            "valueAddress":{ 
+              "line": "97 Trần Phú ",
+              "city": "Hà Nội",
+              "district":"Hà Đông",
+              "postalCode": "121000",
+              "country": "Việt Nam"
+            }
+          },
+          {
+            "url":"https://fptsoftware-com.translate.goog/?_x_tr_sl=en&_x_tr_tl=vi&_x_tr_hl=vi&_x_tr_pto=tc", // link nơi làm việc
+            "valueString": "Nhân viên văn phòng" // việc làm cụ thể
+          }
+        ]
+      },
+      {
+        "actor": {
+          "reference": "Practitioner/98765", // mã bác sĩ
+          "display": "Dr. Tran Van B" // tên bác sĩ 
+        },
+        "status": "Accepted", //
+        "extension":[// địa chỉ bác sĩ 
+          {
+            "valueString":{ 
+              "line": "23 Nguyễn Trãi",
+              "city": "Hà Nội",
+              "district": "Thanh Xuân",
+              "postalCode": "100000",
+              "country": "Việt Nam"
+            }
+          },
+          {
+            "url": "http://benhviendaihocyhanoi.com/",  // nơi học, cấp bằng
+            "valueString": "Chuyên khoa tai mũi họng" // chuyên khoa 
+          }
+        ]
+      },
+      {
+        "actor": {
+          "reference": "Location/01", // Mã địa điểm
+          "display": "Trạm y tế phường" // Tên địa điểm
+        },
+        "status": "Accepted"
+      }
+    ],
+    "extension": [ 
+      {
+        "url": "https://example.org/fhir/StructureDefinition/appointment-channel",// link mô tả cách để đặt lịch 
+        "valueCode": {
+          "coding": [
+            {
+              "system": "https://example.org/fhir/CodeSystem/booking-channel", // link mã hoá nội bộ để đặt lịch
+              "code": "App", 
+              "display": "Đặt qua ứng dụng"
+            }
+          ]
+        }
+      },
+      {
+        "url": "https://benhvienk.vn/", // link địa chỉ bệnh viện
+        "valueCode": {
+          "coding": [
+            {
+              "system": "https://benhvienk.vn/gioi-thieu-khoa-noi-1-nd91154.html", // link phòng dky khám
+              "code": "Onsite",
+              "display": "Đăng ký trực tiếp tại phòng khám"
+            }
+          ]
+        }
+      }
+    ],
+    "supportingInformation":[ // thông tin thẻ BHYT
+      {
+        "reference": "Coverage/COV001",
+        "display":"Bảo hiểm tại nơi cư trú"
+      },
+      {
+        "reference":"Coverage/COV002",
+        "display":"Bảo hiểm tại nơi làm việc"
+      }
+    ]
+  }
+  
